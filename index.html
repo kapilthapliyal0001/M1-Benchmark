@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    <link href="style.css" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,25 +15,37 @@
   <body>
     <div id="first_div">
       <h1>Do you want to start the Game??</h1>
+      <br>
+      <div id="instructions"><h3>Instructions</h3>
+        <div id = "diffi"></div>
+    <br>
+<div>
+    <p>Press the button "Start the game" and you will be shown a number for 1 second. You 
+        will have to enter the number in the input section to prove that you remember the number.
+        For each correct answer your game level will increase and also the Difficulty. The next
+        number is has always one more digit to make it difficult to score!
+    </p>
+</div></div>
       <button id="start_button">Start the Game!</button>
     </div>
 
     <div id="second_div">
       <h2>Your secret number is:</h2>
-      <div id="secret_number">****</div>
+      <div id="secret_number">************</div>
     </div>
     <br /><br /><br />
-    <div id="second_div">
-      <input name="" id="user_input" />
+    <div id="third_div">
+      <input name="" placeholder="Type the hidden number" id="user_input" />
       <button id="submit"><====== Type your secret number</button>
     </div>
 
     <br /><br /><br />
 
     <div id="result"></div>
+    <br>
+    <button id="last_btn" type="submit" onClick="refreshPage()">Restart the Game!</button>
 
-    <div id="score"></div>
-    
+    <div id = "num_series"></div>
     <script src="index.js"></script>
   </body>
 </html>

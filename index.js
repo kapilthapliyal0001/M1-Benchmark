@@ -11,6 +11,15 @@ let score = 0;
 //timeout function
 var delayInMilliseconds = 1000; //1 second
 
+function refreshPage(){
+    window.location.reload();
+    i = 1;
+    setTimeout(function() {
+        target_sec.innerText = "***********"
+    }, 1000);
+    num_generator();
+} 
+
 
 // function to generate a random number and append it into an array
 
@@ -56,6 +65,10 @@ const num_generator = function () {
 };
 
 
+
+
+// console.log(i, "is the value of i 1");
+
 // num_generator();
 
 // adding event listener to the button to start the first random number;
@@ -73,6 +86,11 @@ let submit = document.getElementById("submit");
 submit.addEventListener("click", function () {
   let num_check = parseInt(document.getElementById("user_input").value);
 
+  // remove the input tag text;
+
+  document.getElementById("user_input").value = " ";            
+
+
   //   console.log("the number 1 to be checked is :", num_check);
 
   console.log(num_check);
@@ -80,10 +98,11 @@ submit.addEventListener("click", function () {
 
   // Check if the number is equal to the random number generated and print the message!!
 
+  console.log(i, "is the value of i 2");
 
   if (num_check === array[array.length - 1]) {
             score += 10;
-            document.getElementById("result").innerText = `You win the ${
+            document.getElementById("result").innerText = `Congratulations! You win the ${
 
             i-1
             } th round and your score is ${score} points!`;
@@ -91,23 +110,42 @@ submit.addEventListener("click", function () {
             // console.log(array[array.length - 1], "is the number to be verified !");
             num_generator();
             num_check = "";
-            
 
   } else {
             // console.log(array[array.length - 1], "is the number 2 to be verified !");
             // console.log(typeof num_check, num_check);
 
-            document.getElementById("result").innerText = `You lost in the ${
+            document.getElementById("result").innerText = `Unfortunatley You lost in the ${
             i-1
             } th round! and your score is ${score} points !`;
+
+
             i = 1;
             console.log("lost!");
             num_generator();
             num_check = "";
 
+            setTimeout(function() {
+            document.getElementById("result").innerText = "Let's start fresh!"
+            }, 2500)
+            num_generator();
+            setTimeout(function() {
+                document.getElementById("result").innerText = "  "
+                }, 1500)
+
+
+
 
   }
 });
+
+let text = `DIFFICULTY Level: ${Math.floor(i)} `;
+//checking the difficulty level!
+
+document.getElementById("diffi").innerText = text;
+
+
+// console.log(i, "is the value of i 3");
 
 // <!--
 //         QUIZ GAME!
